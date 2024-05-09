@@ -15,31 +15,41 @@ const deposit = () => {
   }
 };
 
-const depositAmount = deposit();
-console.log(depositAmount);
-
 //2. Determine Number of Lines To bet on.
 
-const lines = () => {
-    while(true){
-        const liners = prompt("Enter the Number of Lines: ");
-        const numoflines = parseInt(liners);
-        if(isNaN(numoflines) || numoflines <= 0 || numoflines > 3){
-            console.log("Invalid number Of Lines , Try Again");
-        }
-        else{
-            return numoflines;
-        }
+const getnumberoflines = () => {
+  while (true) {
+    const lines = prompt("Enter the Number of Lines (1-3): ");
+    const numoflines = parseInt(lines);
+    if (isNaN(numoflines) || numoflines <= 0 || numoflines > 3) {
+      console.log("Invalid number Of Lines , Try Again");
+    } else {
+      return numoflines;
     }
+  }
 };
 
-const liners =  lines();
-console.log(liners);
-console.log("Collecting Bet Amount.........");
 //3. Collect The bet Amount.
-
+const getBet = (balance, lines) => {
+  while (true) {
+    const bet = prompt("Enter the bet per line: ");
+    const numberBet = parseFloat(bet);
+    if (isNaN(numberBet) || numberBet <= 0 || numberBet > balance / lines) {
+      console.log("Invalid Bet , Try Again");
+    } else {
+      return numberBet;
+    }
+  }
+};
 
 //4. Spin The Slot Machine.
 //5. Check If the User Won.
 //6. Give User The Winnings.
 //7. Play Again.
+
+let balance = deposit();
+const lines = getnumberoflines();
+
+console.log("Collecting Bet Amount.........");
+
+const bet = getBet(balance, lines);
