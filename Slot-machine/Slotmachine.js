@@ -1,5 +1,21 @@
 const prompt = require("prompt-sync")();
 
+const ROWS = 3;
+const COLS = 3;
+
+const SYMBOLS_COUNT = {
+  "A": 2,
+  "B": 4,
+  "C": 6,
+  "D": 8
+}
+
+const SYMBOLS_VALUES = {
+  "A": 5,
+  "B": 4,
+  "C": 3,
+  "D": 2
+}
 //1. Enter Deposit from the User.
 
 const deposit = () => {
@@ -43,6 +59,7 @@ const getBet = (balance, lines) => {
 };
 
 //4. Spin The Slot Machine.
+
 //5. Check If the User Won.
 //6. Give User The Winnings.
 //7. Play Again.
